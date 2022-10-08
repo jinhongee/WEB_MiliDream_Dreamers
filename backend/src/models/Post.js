@@ -11,12 +11,6 @@ export default class Post {
 		this.categoryKey = post.categoryKey;
 		this.carrerPostKey = post.carrerPostKey;
 	}
-	static async getAll(categoryKey) {
-		const sql = `SELECT * FROM Post WHERE categoryKey = ?;`;
-		const result = await mariadb.query(sql, [categoryKey]);
-
-		return result;
-	}
 	static async getAllBoards({ tag }) {
 		const sql = `SELECT postKey, userKey, postTime, title, body, Post.categoryKey categoryKey, viewCount, categoryName FROM Post, Category WHERE Post.categoryKey=Category.categoryKey`;
 		const queryValue = [];
