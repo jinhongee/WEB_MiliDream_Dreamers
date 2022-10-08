@@ -34,7 +34,7 @@ router.get("/tags", async (req, res) => {
 router
 	.route("/:boardId")
 	.get(async (req, res) => {
-		const result = BoardServiceInstance.getbyBoardId(req.params.boardId);
+		const result = await BoardServiceInstance.getbyBoardId(req.params.boardId);
 		res.json(result);
 	})
 	.put((req, res) => {
