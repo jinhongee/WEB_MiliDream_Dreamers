@@ -14,7 +14,8 @@ router
 		res.json(result);
 	})
 	.post(async (req, res) => {
-		const result = await BoardServiceInstance.postBoard(req.body);
+		const postDTO = req.body;
+		const result = await BoardServiceInstance.postBoard(postDTO);
 		res.json(result);
 	});
 
@@ -38,7 +39,8 @@ router
 		res.json(result);
 	})
 	.put((req, res) => {
-		BoardServiceInstance.fixbyBoardId(req.params.boardId);
+		const postDTO = req.body
+		BoardServiceInstance.fixbyBoardId(req.params.boardId, postDTO);
 
 		res.send(`Fix board, boardId is ${req.params.boardId}`);
 	})
