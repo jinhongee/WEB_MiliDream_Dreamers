@@ -21,7 +21,7 @@ export default class Post {
 		const sql = `SELECT postKey, userKey, postTime, title, body, Post.categoryKey categoryKey, viewCount, categoryName FROM Post, Category WHERE Post.categoryKey=Category.categoryKey`;
 		const queryValue = [];
 		if (tag) {
-			sql += `AND ㅇ=?`;
+			sql += `AND =?`;
 			queryValue.push(tag);
 		}
 		const result = await mariadb.query(sql, queryValue);
